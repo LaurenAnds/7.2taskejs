@@ -8,6 +8,11 @@ app.set("view engine", "ejs");
 //listen
 app.listen(3000);
 
+//db
+const { makeDBConnectionPool } = require("./dbHelp");
+
+const pool = makeDBConnectionPool("omdb");
+
 app.get("/", (req, res) => {
   console.log("Accessed home page");
   res.render("index");
@@ -58,3 +63,17 @@ app.get('/songs', (req, res) => {
   ];
   res.render('songs', {songs})
 })
+
+app.get("/movies", async (req, res) => {
+  console.log("Accessed movies page");
+  const movieList = await query();
+  console.log(movieList);
+  res.render("movies", { movieList });
+  console.log(movieList)
+});
+
+async function query(){
+  const movies =  await pool
+  .query("select movie_name from casts_view where person_name = 'Tom Cruise'")
+return movies.rows;
+}
