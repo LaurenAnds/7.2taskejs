@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Of Strings Page</title>
+  </head>
+  <nav>
+    <ul>
+      <li><a href="/">Home Page</a></li>
+      <li><a href="about">About page</a></li>
+      <li><a href="create">Create something page</a></li>
+    </ul>
+  </nav>
+  <body>
+    
+    <div style="font-size:300px">
+        <% if (stringsArray.length > 0){ %>
+            <% stringsArray.forEach(stringsArray => { %>
+                <ol>
+                    <li>
+                <p> <%= stringsArray %> </p>
+                </li>
+                </ol>
+        <% }) %>
+        <% } %>
+    
+    </div>
+  </body>
+</html>
