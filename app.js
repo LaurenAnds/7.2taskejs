@@ -70,13 +70,22 @@ app.get('/songs', (req, res) => {
 app.get("/movies", async (req, res) => {
   console.log("Accessed movies page");
   const movieList = await query();
-  console.log(movieList);
   res.render("movies", { movieList });
-  console.log(movieList)
 });
 
 async function query(){
   const movies =  await pool
   .query("select movie_name from casts_view where person_name = 'Tom Cruise'")
 return movies.rows;
+}
+
+//task 13.1 - route parameters
+app.get("/:reversedString", (req, res) => {
+  console.log("Reverse string route parameter practise");
+  const wordToQueryFor = req.params.reversedString;
+  res.send(reverseString(wordToQueryFor));
+});
+
+function reverseString(inputString){
+  return inputString.split("").reverse().join("");
 }
