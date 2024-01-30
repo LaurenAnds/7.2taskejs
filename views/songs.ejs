@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Songs Page</title>
+  </head>
+  <nav>
+    <ul>
+      <li><a href="/">Home Page</a></li>
+      <li><a href="about">About page</a></li>
+      <li><a href="create">Create something page</a></li>
+    </ul>
+  </nav>
+  <body>
+    
+    <div style="font-size:60px">
+        <h2>Favourite Songs</h2>
+
+        <% if (songs.length > 0){ %>
+            <% songs.forEach(song => { %>
+               <h3><%= song.title %></h3>
+               <p><%= song.artist %></p>
+               <p><%= song.link %></p>
+        <% }) %>
+        <% } %>
+    
+    </div>
+  </body>
+</html>

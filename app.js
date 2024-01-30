@@ -37,8 +37,24 @@ app.get("/strings", (req, res) => {
   const stringsArray = ["apple", "banana", "orange", "grape", "kiwi", "strawberry", "blueberry"]
   res.render("strings", { stringsArray });
 });
-// function loopThroughStrings(inputArray){
-//   for(let element of inputArray){
-//     return element;
-//   }
-// }
+
+app.get('/songs', (req, res) => {
+  const songs = [
+    {
+      title: "Blue Is The Eye",
+      artist: "Ye Vagabonds",
+      link: "https://www.youtube.com/watch?v=MTcCsIsaF7c"
+    },
+    {
+      title: "Beetlebum",
+      artist: "Blur",
+      link: "https://www.youtube.com/watch?v=WAXnqjUfal4"
+    },
+    {
+      title: "Grace",
+      artist: "The Wolfe Tones",
+      link: "https://www.youtube.com/watch?v=hvfhZn18lfk&t=4s"
+    }
+  ];
+  res.render('songs', {songs})
+})
