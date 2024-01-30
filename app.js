@@ -79,8 +79,8 @@ async function query(){
 return movies.rows;
 }
 
-//task 13.1 - route parameters
-app.get("/:reversedString", (req, res) => {
+//task 13.1 - route parameters 
+app.get("/reverse/:reversedString", (req, res) => {
   console.log("Reverse string route parameter practise");
   const wordToQueryFor = req.params.reversedString;
   res.send(reverseString(wordToQueryFor));
@@ -88,4 +88,24 @@ app.get("/:reversedString", (req, res) => {
 
 function reverseString(inputString){
   return inputString.split("").reverse().join("");
+}
+
+//task 13.2
+app.get("/removeVowels/:givenString", (req, res) => {
+  console.log("Reverse string route parameter practise");
+  const wordToRemoveVowels = req.params.givenString;
+  res.send(removeVowelsFromString(wordToRemoveVowels));
+});
+
+function removeVowelsFromString(inputString){
+  let vowelsList = "aeiouAEIOU";
+  let result = "";
+  
+  for (let i = 0; i < inputString.length; i++) {
+      if (vowelsList.indexOf(inputString[i]) === -1) {
+          result += inputString[i];
+      }
+  }
+
+  return result;
 }
