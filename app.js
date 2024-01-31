@@ -92,7 +92,7 @@ function reverseString(inputString){
 
 //task 13.2
 app.get("/removeVowels/:givenString", (req, res) => {
-  console.log("Reverse string route parameter practise");
+  console.log("Remove vowels route parameter practise");
   const wordToRemoveVowels = req.params.givenString;
   res.send(removeVowelsFromString(wordToRemoveVowels));
 });
@@ -108,4 +108,20 @@ function removeVowelsFromString(inputString){
   }
 
   return result;
+}
+
+//task 13.3
+app.get("/number1/:firstNumber/number2/:secondNumber", (req, res) => {
+  console.log("Add numbers route parameter practise");
+  let firstInputtedNumber = req.params.firstNumber;
+  let secondInputtedNumber = req.params.secondNumber;
+  let result = sumOfGivenNumbers(firstInputtedNumber, secondInputtedNumber)
+  res.send(result.toString());
+});
+
+function sumOfGivenNumbers(inputNumber1, inputNumber2){
+  let stringToNumber1 = parseInt(inputNumber1);
+  let stringToNumber2 = parseInt(inputNumber2);
+  return stringToNumber1 + stringToNumber2;
+
 }
