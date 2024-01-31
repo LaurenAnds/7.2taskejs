@@ -125,3 +125,14 @@ function sumOfGivenNumbers(inputNumber1, inputNumber2){
   return stringToNumber1 + stringToNumber2;
 
 }
+
+//task 13.4
+app.get("/showMovie/:movieID", async (req, res) => {
+  console.log("Show any one movie by id practice");
+  const movieToShow = req.params.movieID;
+  const moviesDBResult =  await pool
+  .query("select * from movies where id = $1", [movieToShow])
+  console.log(moviesDBResult.rows);
+ res.send( moviesDBResult.rows );
+});
+
